@@ -26,13 +26,13 @@ import org.openqa.selenium.chrome.*;
 
 public class MyServerAndroid extends JFrame {
 
-	private JPanel contentPane;
+	//private JPanel contentPane;
 	private static ServerSocket ss;
 	private static Socket s;
 	private static BufferedReader br;
 	private static InputStreamReader isr;
 	private static String message="";
-	private static JLabel jlabel = new JLabel("SERVER");
+	//private static JLabel jlabel = new JLabel("SERVER");
 	private static String lastMouvement;
 	private static String uriGen;
 
@@ -44,11 +44,11 @@ public class MyServerAndroid extends JFrame {
 			public void run() {
 				try {
 					//MyServerAndroid frame = new MyServerAndroid();
-					URL urlWalking = new URL("https://upload.wikimedia.org/wikipedia/commons/4/43/4-frame-walk-cycle.gif");
-					URL urlRunning = new URL("https://i.gifer.com/7LD1.gif");
-					URL urlUpstairs = new URL("https://i.gifer.com/7LD1.gif");
-					URL urlDownstairs = new URL("https://i.gifer.com/7LD1.gif");
-					URL urlImmobile = new URL("https://i.gifer.com/7LD1.gif");
+					//URL urlWalking = new URL("https://upload.wikimedia.org/wikipedia/commons/4/43/4-frame-walk-cycle.gif");
+					//URL urlRunning = new URL("https://i.gifer.com/7LD1.gif");
+					//URL urlUpstairs = new URL("https://i.gifer.com/7LD1.gif");
+					//URL urlDownstairs = new URL("https://i.gifer.com/7LD1.gif");
+					//URL urlImmobile = new URL("https://i.gifer.com/7LD1.gif");
 					
 					
 					
@@ -92,10 +92,13 @@ public class MyServerAndroid extends JFrame {
 				
 				System.out.println(message);
 				
-				if( lastMouvement==null ||lastMouvement.compareTo(message)!=0) {
+				if(message != null) {
+					if( (lastMouvement==null ||lastMouvement.compareTo(message)!=0)) {
+					
 					lastMouvement = message;
 					uriGen = "http://localhost:3000/" + message.toLowerCase();
 					driver.get(uriGen);
+					}
 				}
 				
 				/*
@@ -152,12 +155,12 @@ public class MyServerAndroid extends JFrame {
 	 * Create the frame.
 	 */
 	public MyServerAndroid() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setBounds(100, 100, 450, 300);
+		//contentPane = new JPanel();
+		//contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		//contentPane.setLayout(new BorderLayout(0, 0));
+		//setContentPane(contentPane);
 		
 		//JLabel lblNewLabel = new JLabel("SERVER");
 		//jlabel = lblNewLabel;
